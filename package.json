@@ -1,0 +1,19 @@
+{
+  "name": "hw02-tripfund",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test -vv",
+    "validate:upgrade": "forge clean && forge build && openzeppelin-upgrades-core validate out/build-info --contract src/TripFund.sol:TripFund && openzeppelin-upgrades-core validate out/build-info --contract src/TripFundV2.sol:TripFundV2 --requireReference",
+    "check": "forge fmt --check && npm test && npm run validate:upgrade"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "5.0.2",
+    "@openzeppelin/contracts-upgradeable": "5.0.2",
+    "@openzeppelin/upgrades-core": "1.44.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
